@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Track your finance API
+  description: API to perform operations on Track Your Finance application
+  version: 0.0.1
+servers:
+  - url: "http://localhost:8090"
+    description: Development server
+paths:
+  /user/expense:
+    post:
+      description: Using the expense endpoint will let you save a single expense for a particular user.
+      parameters:
+        - $ref: "#/components/parameters/contentType"
+      requestBody:
+        description: Request body for expense API
+        content:
+          application/v1+json:
+            schema:
+              $ref:  "#/components/schemas/expenseRequestBody"
+      responses:
+        '200':
+          description: Successfully saved an expense for a user
+          content:
+            application/v1+json:
+              schema:
+                $ref: "#/components/schemas/expenseResponseBody"
+components:
+  schemas:
+    expenseRequestBody:
+      type: object
+      properties:
+        description:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        timestamp:
+          type: string
+    expenseResponseBody:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
