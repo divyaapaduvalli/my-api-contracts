@@ -16,10 +16,15 @@
     <name>Track your finance API contract</name>
     <description>API contract written in OPENAPI for Track your finance service</description>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
-
+    <build>
+        <!--Include the openapi contract in the jar under resources-->
+        <resources>
+            <resource>
+                <directory>${basedir}</directory>
+                <includes>
+                    <include>contract/track-your-finance.yaml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>
