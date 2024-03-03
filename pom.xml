@@ -12,7 +12,7 @@
 
     <!-- might have to remove -->
     <modules>
-        <module>track-your-finance</module>
+        <module>track-your-finance-contract</module>
     </modules>
 
     <name>API contracts</name>
